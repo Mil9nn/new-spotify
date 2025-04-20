@@ -23,14 +23,14 @@ export const createSong = async (req, res, next) => {
         const audioFile = req.files.audioFile;
         const imageFile = req.files.imageFile;
 
-        const audioURL = await uploadToCloudinary(audioFile);
-        const imageURL = await uploadToCloudinary(imageFile);
+        const audioUrl = await uploadToCloudinary(audioFile);
+        const imageUrl = await uploadToCloudinary(imageFile);
 
         const song = new Song({
             title,
             artist,
-            audioURL,
-            imageURL,
+            audioUrl,
+            imageUrl,
             duration,
             albumId: albumId || null,
         });
@@ -76,13 +76,13 @@ export const createAlbum = async (req, res, next) => {
         const { title, artist, releaseYear } = req.body;
         const { imageFile } = req.files;
 
-        const { imageURL } = await uploadToCloudinary(imageFile);
+        const { imageUrl } = await uploadToCloudinary(imageFile);
 
         const album = new Album({
             title,
             artist,
             releaseYear,
-            imageURL,
+            imageUrl,
         })
 
         await album.save()

@@ -2,16 +2,16 @@ import { User } from '../models/user.model.js'
 
 export const authCallback = async (req, res, next) => {
    try {
-    const { id, firstName, lastName, imageURL } = req.body  // this is how clerk stores data
+    const { id, firstName, lastName, imageUrl } = req.body  // this is how clerk stores data
 
     // check if user already exists
     const user = await User.findOne({clerkId: id});
     if(!user) {
         // sign up
-        await user.Create({
+        await User.create({
             clerkId: id,
             fullName: `${firstName} ${lastName}`,
-            imageURL
+            imageUrl
         })
     }
     res.status(200).json({success: true})

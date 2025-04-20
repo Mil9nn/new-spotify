@@ -23,8 +23,8 @@ export const getFeaturedSongs = async (req, res, next) => {
                     _id: 1,
                     title: 1,
                     artist: 1,
-                    audioURL: 1,
-                    imageURL: 1,
+                    audioUrl: 1,
+                    imageUrl: 1,
                 }
             }
         ]);
@@ -47,8 +47,8 @@ export const getMadeForYouSongs = async (req, res, next) => {
                     _id: 1,
                     title: 1,
                     artist: 1,
-                    audioURL: 1,
-                    imageURL: 1,
+                    audioUrl: 1,
+                    imageUrl: 1,
                 }
             }
         ]);

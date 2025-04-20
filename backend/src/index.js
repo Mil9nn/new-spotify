@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import { connectDB } from './lib/db.js';
 import { clerkMiddleware } from '@clerk/express'
@@ -19,6 +20,12 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(cors(
+   {
+     origin: "http://localhost:3000",
+    credentials: true
+}
+));
 app.use(express.json()); // to parse req.body
 app.use(clerkMiddleware()) // this will add auth to request object
 app.use(fileUpload({
@@ -45,3 +52,5 @@ app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
     connectDB();
 })
+
+// todo: socket.io

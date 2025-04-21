@@ -40,7 +40,6 @@ export const createSong = async (req, res, next) => {
 
         if (albumId) {
             await Album.findByIdAndUpdate(albumId, { $push: { songs: song._id } });
-            $push: { songs: song._id } // Add the song ID to the album's songs array
         }
 
         res.status(201).json({ message: 'Song created successfully', song });

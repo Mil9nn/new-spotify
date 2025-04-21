@@ -9,11 +9,11 @@ const songSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    imageURL: {
+    imageUrl: {
         type: String,
         required: true
     },
-    audioURL: {
+    audioUrl: {
         type: String,
         required: true
     },

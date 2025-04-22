@@ -58,7 +58,7 @@ export const deleteSong = async (req, res, next) => {
         // Optionally, remove the song from the album if it exists
         if (song.albumId) {
             await Album.findByIdAndUpdate(song.albumId, { $pull: { songs: song._id } });
-            $pull: { songs: song._id } // Remove the song ID from the album's songs array
+            // $pull: { songs: song._id } Removes the song ID from the album's songs array
         }
 
         res.status(200).json({ message: 'Song deleted successfully' });

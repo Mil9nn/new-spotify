@@ -23,7 +23,7 @@ const MainLayout = () => {
                     <Outlet />
                 </ResizablePanel>
                 <ResizableHandle />
-                {/* Main content */}
+                {/* Right side bar */}
                 <ResizablePanel defaultSize={20} minSize={0} maxSize={25} collapsedSize={0}>
                     friends activity
                 </ResizablePanel>
